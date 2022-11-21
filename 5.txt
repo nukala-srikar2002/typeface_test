@@ -1,0 +1,37 @@
+Web crawling:
+    Web crawling is one of the many methods to search web pages across the internet. Web crawling or scraping is used to collect data of pages and extract it.
+   One of the most used community - run site that conatains information about web crawling is brick-set
+   it extracts data from each page displaying, the data on the screen.
+   
+   Scraping is a 2 process function 
+   1. Systematically finding and downloading the web pages.
+   2.Taking those web pages and extracting information from them.
+   
+   Scraper requires certain modules and packages to be installed before running
+   The figuring of data format is an essential like - CSV, JSON, XML
+  
+   We use python language for the implementation of it
+   
+   we write the command:
+    $pip install scrapy
+    $mkdir brickset-scraper
+    
+   Steps we can take to initialize and define our crawler
+   1.importing scrapper
+   2.Creating a crawler or spider for web scraping
+   3.Defining a list of urls we want to crawl from, we generally take one crawler to start from.
+   4.The scraper initialized and loaded additional components and extensions it needed to handle reading data from URLs.
+   5.It used the URL we provided in the start_urls list and grabbed the HTML, just like your web browser would do.
+   6.It passed that HTML to the parse method, which doesn’t do anything by default. Since we never wrote our own parse method, the spider just finishes without doing any work.
+ 
+ 
+Extracting data:
+1. grab each LEGO set by looking for the parts of the page that have the data we want.
+2. for each set, grab the data we want from it by pulling the data out of the HTML tags.
+
+We’ll use CSS selectors for now since CSS is the easier option and a perfect fit for finding all the sets on the page. If you look at the HTML for the page, you’ll see that each set is specified with the class set. 
+
+We append ::text to our selector for the name. That’s a CSS pseudo-selector that fetches the text inside of the a tag rather than the tag itself.
+We call extract_first() on the object returned by brickset.css(NAME_SELECTOR) because we just want the first element that matches the selector. This gives us a string, rather than a list of elements.
+
+Like this we can crawl and extract data
